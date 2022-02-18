@@ -1,4 +1,4 @@
-package com.college.javaProject.harsh;
+package com.college.javaProject;
 
 public class User {
 	private Long id;

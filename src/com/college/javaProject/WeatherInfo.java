@@ -1,8 +1,10 @@
-package com.college.javaProject.harsh;
+package com.college.javaProject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -37,9 +39,19 @@ public class WeatherInfo {
 	 	int temp = m.getInt("temp");
 	 	int tempMin = m.getInt("temp_min");
 	 	int tempMax = m.getInt("temp_max");
-	 	
-	 	System.out.println("Current temp = " +( temp - 273.15)+"°C");
-	 	System.out.println("Min temp = "+ (tempMin - 273.15)+"°C");
-	 	System.out.println("Max temp = "+ (tempMax - 273.15)+"°C");
+	 	double t1 = round(temp,2);
+	 	double t2 = round(tempMin,2);
+	 	double t3 = round(tempMax,2);
+	 //	System.out.println(round(t1,2));
+	 	System.out.println("Current temp = " +t1+"°C");
+	 	System.out.println("Min temp = "+ t2+"°C");
+	 	System.out.println("Max temp = "+t3+"°C");
+	}
+	public  double round(double value, int places) {
+		value=value-275.15;
+	    if (places < 0) throw new IllegalArgumentException();
+	    BigDecimal bd = BigDecimal.valueOf(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
 	}
 }

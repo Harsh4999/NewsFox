@@ -3,21 +3,58 @@
   <groupId>JavaProject</groupId>
   <artifactId>JavaProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.28</version>
-</dependency>
+	<repositories>
+		<repository>
+			<id>com.teamdev</id>
+			<url>https://europe-maven.pkg.dev/jxbrowser/releases</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-cross-platform</artifactId>
+			<version>7.22</version>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-swing</artifactId>
+			<version>7.22</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.13.0.0</version>
+		</dependency>
 
-  <dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20210307</version>
-   </dependency>
-    
-  </dependencies>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
+
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.teamdev.jxbrowser/license -->
+
+
+
+	</dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -25,7 +62,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <release>1.8</release>
+          <release>17</release>
         </configuration>
       </plugin>
     </plugins>

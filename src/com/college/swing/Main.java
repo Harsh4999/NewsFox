@@ -11,6 +11,10 @@ import javax.swing.border.EmptyBorder;
 
 public class Main extends JFrame implements MouseListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -45,9 +49,8 @@ public class Main extends JFrame implements MouseListener{
 		contentPane.add(tabbedPane);
 		NewsFrame n=new NewsFrame();
 		tabbedPane.addTab("News", null, n, null);
-		
-		JTabbedPane Weather = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("Weather", null, Weather, null);
+		WeatherFrame w = new WeatherFrame();
+		tabbedPane.addTab("Weather", null, w, null);
 	}
 
 	@Override

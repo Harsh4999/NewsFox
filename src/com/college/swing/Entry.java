@@ -1,5 +1,6 @@
 package com.college.swing;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,7 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import com.college.javaProject.harsh.DB;
+import com.college.javaProject.DB;
+
 import javax.swing.JPasswordField;
 
 public class Entry extends JFrame implements MouseListener{
@@ -21,6 +23,8 @@ public class Entry extends JFrame implements MouseListener{
 	private JTextField textField;
 	private JLabel label;
 	private JPasswordField passwordField;
+	private JButton btnRegister;
+	private JButton btnLogin;
 
 	/**
 	 * Launch the application.
@@ -50,7 +54,7 @@ public class Entry extends JFrame implements MouseListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnLogin = new JButton("Login");
+		btnLogin = new JButton("Login");
 		btnLogin.addMouseListener(this);
 		btnLogin.setBounds(186, 123, 105, 27);
 		contentPane.add(btnLogin);
@@ -75,25 +79,37 @@ public class Entry extends JFrame implements MouseListener{
 		passwordField = new JPasswordField();
 		passwordField.setBounds(275, 90, 122, 21);
 		contentPane.add(passwordField);
+		
+		btnRegister = new JButton("Register");
+		btnRegister.setBounds(186, 177, 105, 27);
+		btnRegister.addMouseListener(this);
+		contentPane.add(btnRegister);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
-				DB obj = new DB();
-				String username = textField.getText();
-				String password = passwordField.getText();
-				if(obj.validate(username, password)) {
-					System.out.println("Success");
-					this.dispose();
-					final Main o = new Main();
-					o.setVisible(true);
-				}else {
-					label.setText("Wrong password try again!");
-					textField.setText("");
-					passwordField.setText("");
-				}
+		Component c = e.getComponent();
+		if(c.equals(btnLogin)) {
+			DB obj = new DB();
+			String username = textField.getText();
+			String password = passwordField.getText();
+			if(obj.validate(username, password)) {
+				System.out.println("Success");
+				this.dispose();
+				final Main o = new Main();
+				o.setVisible(true);
+			}else {
+				label.setText("Wrong password try again!");
+				textField.setText("");
+				passwordField.setText("");
+			}
+		}else if(c.equals(btnRegister)) {
+			this.dispose();
+			final RegisterFrame o = new RegisterFrame();
+			o.setVisible(true);
+		}
+			
 	}
 
 	@Override

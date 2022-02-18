@@ -1,4 +1,4 @@
-package com.college.javaProject.harsh;
+package com.college.javaProject;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.college.javaProject.harsh;
+package com.college.javaProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class DB {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");  
 			Connection con=DriverManager.getConnection(  
-			"jdbc:mysql://localhost:3306/sys","root","#");
+			"jdbc:mysql://localhost:3306/sys","root","Welll#");
 			return con;
 		}catch(Exception e) {
 			return null;
@@ -85,6 +85,8 @@ public class DB {
 			ps.setLong(5, 0);
 			ps.execute();
 			con.close();
+			u.setId(id);
+			return u;
 		}catch(Exception e) {
 			System.out.println(e);
 		}
