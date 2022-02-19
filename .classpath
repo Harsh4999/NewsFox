@@ -6,9 +6,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -17,15 +16,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-swt-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-swing-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-javafx-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-win64-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-win32-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-mac-arm-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-mac-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-linux64-arm-7.22.jar"/>
-	<classpathentry kind="lib" path="/home/harsh/jxbrowser-7.22-cross-desktop-win_mac_linux/lib/jxbrowser-linux64-7.22.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
