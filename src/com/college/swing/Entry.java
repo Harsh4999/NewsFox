@@ -54,19 +54,26 @@ public class Entry extends JFrame implements MouseListener{
 	 */
 	public Entry() {
 		URL website;
-		try {
-			website = new URL("https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json");
-			ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-			File f = new File("data");
-			if(!f.exists()) {
-				f.mkdir();
+		File temp = new File("data/countries+states+cities.json");
+		if(!temp.exists()) {
+			System.out.println("Downloading some required files......");
+			try {
+				website = new URL("https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json");
+				ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+				File f = new File("data");
+				if(!f.exists()) {
+					f.mkdir();
+				}
+				FileOutputStream fos = new FileOutputStream("data/countries+states+cities.json");
+				fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			FileOutputStream fos = new FileOutputStream("data/countries+states+cities.json");
-			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}else {
+			System.out.println("Welcome!");
 		}
+		
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 466, 290);
