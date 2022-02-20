@@ -56,6 +56,11 @@
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/com.teamdev.jxbrowser/license -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 
 
 
