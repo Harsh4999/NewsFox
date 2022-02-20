@@ -57,6 +57,10 @@ public class Entry extends JFrame implements MouseListener{
 		try {
 			website = new URL("https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json");
 			ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+			File f = new File("data");
+			if(!f.exists()) {
+				f.mkdir();
+			}
 			FileOutputStream fos = new FileOutputStream("data/countries+states+cities.json");
 			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 		} catch (Exception e) {
