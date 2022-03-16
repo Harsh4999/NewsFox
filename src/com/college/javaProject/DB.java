@@ -10,11 +10,13 @@ import java.util.List;
 public class DB {
 	public Connection getCon() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");  
-			Connection con=DriverManager.getConnection(  
-			"jdbc:mysql://localhost:3306/sys","root","Welll#");
+			Class.forName("org.postgresql.Driver");
+			Connection con =DriverManager
+            .getConnection("jdbc:postgresql://ec2-3-227-195-74.compute-1.amazonaws.com:5432/ddcp4ovam14lpn",
+            "noewketliccqar", "8c7c187ff14f0f68bfd2518c71584898b7acef0f18b81874818a35f95d6b0ad2");
 			return con;
 		}catch(Exception e) {
+			System.out.println(e);
 			return null;
 		}
 		
@@ -23,7 +25,7 @@ public class DB {
 		List<User> l = new ArrayList();
 		try {
 			Connection con = getCon();
-			String select = "select * from User";
+			String select = "select * from Usr";
 			PreparedStatement ps = con.prepareStatement(select);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -44,7 +46,7 @@ public class DB {
 	public User getOne(String username){
 		try {
 			Connection con = getCon();
-			String select = "select * from User where username = ?";
+			String select = "select * from Usr where username = ?";
 			PreparedStatement ps = con.prepareStatement(select,
                     ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
@@ -74,7 +76,7 @@ public class DB {
 	public User add(User u) {
 		try {
 			Connection con = getCon();
-			String insert = "insert into User values(?,?,?,?,?)";
+			String insert = "insert into Usr values(?,?,?,?,?)";
 			PreparedStatement ps = con.prepareStatement(insert);
 			List<User> l1 = getAll();
 			long id = l1.size()+1;

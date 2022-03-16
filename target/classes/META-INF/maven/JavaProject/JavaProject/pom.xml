@@ -3,25 +3,26 @@
   <groupId>JavaProject</groupId>
   <artifactId>JavaProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-	<repositories>
-		<repository>
-			<id>com.teamdev</id>
-			<url>https://europe-maven.pkg.dev/jxbrowser/releases</url>
-		</repository>
-	</repositories>
+							<properties>
+								<maven.compiler.source>1.8</maven.compiler.source>
+								<maven.compiler.target>1.8</maven.compiler.target>
+							</properties>
+	
+	
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
-			<groupId>com.teamdev.jxbrowser</groupId>
-			<artifactId>jxbrowser-cross-platform</artifactId>
-			<version>7.22</version>
-			<type>pom</type>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
-			<groupId>com.teamdev.jxbrowser</groupId>
-			<artifactId>jxbrowser-swing</artifactId>
-			<version>7.22</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.3.3</version>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -34,7 +35,11 @@
 			<artifactId>ojdbc10</artifactId>
 			<version>19.13.0.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -51,19 +56,46 @@
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/com.teamdev.jxbrowser/license -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 
 
 
 	</dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <resources>
+		<resource>
+			<directory>JavaProject/data</directory>
+		</resource>
+	</resources>
+    
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>17</release>
-        </configuration>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+                <execution>
+                    <id>create-my-bundle</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                        <archive>
+                            <manifest>
+                                <mainClass>com.college.swing.Entry</mainClass> <!-- Or wherever is your main method-->
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </execution>
+            </executions>
       </plugin>
     </plugins>
   </build>

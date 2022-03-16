@@ -2,20 +2,26 @@ package com.college.swing;
 
 import java.awt.Component;
 import java.awt.EventQueue;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.college.javaProject.DB;
-
-import javax.swing.JPasswordField;
 
 public class Entry extends JFrame implements MouseListener{
 
@@ -47,6 +53,28 @@ public class Entry extends JFrame implements MouseListener{
 	 * Create the frame.
 	 */
 	public Entry() {
+		URL website;
+		File temp = new File("data/countries+states+cities.json");
+		if(!temp.exists()) {
+			System.out.println("Downloading some required files......");
+			try {
+				website = new URL("https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bstates%2Bcities.json");
+				ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+				File f = new File("data");
+				if(!f.exists()) {
+					f.mkdir();
+				}
+				FileOutputStream fos = new FileOutputStream("data/countries+states+cities.json");
+				fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			System.out.println("Welcome!");
+		}
+		
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 466, 290);
 		contentPane = new JPanel();
