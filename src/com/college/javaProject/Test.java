@@ -1,10 +1,32 @@
 package com.college.javaProject;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+abstract class shapes{
+	abstract void display();
+}
+class sphere extends shapes{
+	public long r=5;
+	
+	public long getR() {
+		return r;
+	}
 
-import com.college.swing.WeatherFrame;
+	public void setR(long r) {
+		this.r = r;
+	}
 
+	public void display() {
+		System.out.println("hello from sphere");
+	}
+}
+class triangle extends shapes{
+	public long t;
+	public void display() {
+		System.out.println("hello from triangle");
+	}
+}
 public class Test {
 	public static void main(String[] args) throws IOException {
 		//weather
@@ -13,8 +35,8 @@ public class Test {
 2. Code developed till date
 3. Database design ( Data tables and E-R diagram)
 4. DFD ( Context flow and level - 0 diagram)
-*/		WeatherInfo w = new WeatherInfo();
-		w.getCountries();
+//*/	//	WeatherInfo w = new WeatherInfo();
+//		w.getCountries();
 //		Scanner sc = new Scanner(System.in);
 //		Scanner sc1 = new Scanner(System.in);
 //		DB obj = new DB();
@@ -89,5 +111,13 @@ public class Test {
 //		}
 //		sc1.close();
 //		sc.close();
+		
+		
+		shapes a [] = new shapes[5];
+		a[0]= new sphere();
+		sphere s = (sphere) a[0];
+		System.out.println(s.getR());
+		a[1] = new triangle();
+		a[1].display();
 	}
 }
